@@ -38,7 +38,7 @@ export default function Page() {
         </div>
 
         <p className="mt-6 font-display text-xl uppercase tracking-[0.12em] text-brand-yellow sm:text-2xl">
-          Herfra kommer det neste store.
+          Herfra kommer det neste store
         </p>
 
         <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/80">
@@ -116,7 +116,7 @@ export default function Page() {
           </a>
         </p>
         <p className="mt-2 text-xs text-white/40">
-          © {new Date().getFullYear()} KAP1. Herfra kommer det neste store.
+          © {new Date().getFullYear()} KAP1. Herfra kommer det neste store
         </p>
       </footer>
     </main>

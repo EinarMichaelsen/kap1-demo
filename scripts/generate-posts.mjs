@@ -81,7 +81,7 @@ const posts = [
     name: "01-teaser",
     svg: frame(`
       ${wordmark(W / 2, 470, 240)}
-      ${headline(["HERFRA KOMMER", "DET NESTE STORE."], W / 2, 640, 64, YELLOW, 1.1)}
+      ${headline(["HERFRA KOMMER", "DET NESTE STORE"], W / 2, 640, 64, YELLOW, 1.1)}
       ${headline(["NOE STORT ER PÅ VEI.", "FØLG MED."], W / 2, 880, 38, WHITE, 1.3)}
     `),
   },
