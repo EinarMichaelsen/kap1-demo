@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --maroon: #7d3f40;
+}
+
+html,
+body {
+  background-color: var(--maroon);
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* The KAP1 wordmark: heavy yellow type with a hard orange offset block,
+   recreated from the brand stills. */
+.logo-kap1 {
+  position: relative;
+  display: inline-block;
+  font-family: var(--font-anton), Impact, sans-serif;
+  line-height: 0.9;
+  letter-spacing: -0.01em;
+  color: #ffd60a;
+}
+.logo-kap1::before {
+  content: attr(data-text);
+  position: absolute;
+  left: -0.06em;
+  top: 0.06em;
+  color: #f97316;
+  z-index: -1;
+}
+
+/* Subtle film-grain / vignette so the flat maroon feels premium. */
+.vignette {
+  background: radial-gradient(
+    ellipse at 50% 35%,
+    rgba(255, 255, 255, 0.06) 0%,
+    rgba(0, 0, 0, 0) 45%,
+    rgba(0, 0, 0, 0.25) 100%
+  );
+}
+
+@keyframes floaty {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+.animate-floaty {
+  animation: floaty 6s ease-in-out infinite;
+}
