@@ -21,11 +21,11 @@ export async function POST(request) {
     );
   }
 
-  // Where signups go. Set FORMSPREE_ENDPOINT in your environment to receive
-  // every email in your Formspree dashboard / inbox. See README for the
-  // 30-second setup. Without it, the form still works (demo mode) so the page
-  // is never broken — it just doesn't persist the address.
-  const endpoint = process.env.FORMSPREE_ENDPOINT;
+  // Where signups go. Every email lands in the KAP1 Formspree inbox/dashboard
+  // (exportable to CSV). FORMSPREE_ENDPOINT can override this in Vercel without
+  // a code change; the default below is the live KAP1 waitlist form.
+  const endpoint =
+    process.env.FORMSPREE_ENDPOINT || "https://formspree.io/f/xeebovea";
 
   if (endpoint) {
     try {
