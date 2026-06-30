@@ -54,6 +54,30 @@ e-postadresser:
 > den URL-en i `FORMSPREE_ENDPOINT` i stedet — API-ruten sender samme JSON
 > (`{ email, source, submittedAt }`) uansett mottaker.
 
+## Foto-AI (`/foto`)
+
+En liten ekstra app: gå til `/foto`, ta et bilde i nettleseren, så sendes det
+til en AI-modell (Claude) som beskriver hva den ser og viser svaret tilbake.
+
+- Live kamera via nettleseren (bakkamera på mobil), med opplasting som reserve
+  hvis kameraet ikke er tilgjengelig.
+- Bildet skaleres ned i nettleseren før det sendes, så det går raskt.
+- Selve AI-kallet skjer server-side i `app/api/analyze/route.js` — API-nøkkelen
+  ligger aldri i nettleseren.
+
+### Koble på AI-en
+
+Du trenger en API-nøkkel fra [Anthropic](https://console.anthropic.com). Legg
+den inn som en miljøvariabel i Vercel (Project → Settings → Environment
+Variables):
+
+```
+ANTHROPIC_API_KEY = sk-ant-...
+```
+
+Lokalt: lag en fil `.env.local` med samme linje (se `.env.example`). Uten
+nøkkelen svarer `/foto` med en tydelig feilmelding i stedet for å krasje.
+
 ## Struktur
 
 ```
@@ -61,9 +85,12 @@ app/
   page.jsx              # Selve landingssiden
   layout.jsx            # Metadata, fonter
   globals.css           # KAP1-logo-effekt + bakgrunn
+  foto/page.jsx         # Foto-AI-appen
   components/
     WaitlistForm.jsx    # Påmeldingsskjema
     Countdown.jsx       # Nedtelling til 26. august
+    CameraAnalyzer.jsx  # Kamera + sending til AI (klientkomponent)
   api/subscribe/route.js# Tar imot e-post, sender til Formspree
+  api/analyze/route.js  # Sender bilde til Claude, returnerer beskrivelse
 marketing/              # Instagram-poster (bilder + caption-tekst)
 ```
