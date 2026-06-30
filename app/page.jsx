@@ -118,6 +118,11 @@ export default function Page() {
         <p className="mt-2 text-xs text-white/40">
           © {new Date().getFullYear()} KAP1. Herfra kommer det neste store
         </p>
+        <p className="mt-4 text-xs">
+          <a href="/foto" className="text-white/50 underline hover:text-white">
+            Prøv Foto-AI →
+          </a>
+        </p>
       </footer>
     </main>
   );
